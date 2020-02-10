@@ -12,7 +12,7 @@
 
 //---------------------------------------------------------
 
-// Constants & ariables
+// Constants & Variables
 
 #define AA_FONT_SMALL "NotoSansBold15"
 #define AA_FONT_LARGE "NotoSansBold36"
@@ -84,7 +84,7 @@ void loadScreen() {
   
   tft.setCursor(40, 10);
   tft.setTextColor(TFT_GREEN, TFT_BLACK);
-  tft.println("ORA:");
+  tft.println("NOW:");
   
   tft.setCursor(40, 60);
   tft.setTextColor(TFT_BLUE, TFT_BLACK);
@@ -109,7 +109,7 @@ void running_rec() {
   if (tick) {
     tft.fillRect(0,0,30,30,TFT_BLACK);
   }
-  else if (not tick) {
+  else {
     tft.pushImage(0,0,30,30,rec);
   }
   tick = not tick;
@@ -131,7 +131,7 @@ void updateDisplay(float t) {
   tft.setTextColor(TFT_GREEN, TFT_BLACK);
   tft.println(t);
   
-    // Controlla se sono stati rilevati nuovi picchi minimi
+    // Check for new min record
     if (t < mintemp) {
       tft.fillRect (100, 45, 120, 45, TFT_BLACK);
       tft.setCursor(100, 50);
@@ -140,7 +140,7 @@ void updateDisplay(float t) {
       mintemp = t;
     }
 
-    // Controlla se sono stati rilevati nuovi picchi massimi
+    // Check for new max record
     if (t > maxtemp) {
       tft.fillRect (100, 90, 120, 45, TFT_BLACK);
       tft.setCursor(100, 100);
@@ -180,7 +180,8 @@ void setup() {
 // Loop
 
 void loop() {
-
+  // If you have another sensor you can substitute these two line
+  // and use the same function (just note or change float type) 
   sensors.requestTemperatures();
   t = sensors.getTempCByIndex(0);
   
