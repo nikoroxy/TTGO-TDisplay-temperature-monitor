@@ -1,7 +1,5 @@
 # TTGO T-Display Temperature Monitor
 
-That's my Arduino IDE project, it provides some code who may help someone writing his own.
-
 ### Prerequisites 
 
 - Arduino IDE with ESP32 board installed ([How to?](https://github.com/espressif/arduino-esp32))
